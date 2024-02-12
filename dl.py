@@ -11,7 +11,7 @@ def download_video(url, caption=False):
     vid_stream = yt.streams.filter(file_extension='mp4').get_highest_resolution()
     vid_name = vid_stream.title
     print(f"downloading video {vid_name} from {url}")
-    #vid_stream.download()
+    vid_stream.download()
     print("downloaded video")
     if caption:
         if "en" in yt.captions:
