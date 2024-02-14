@@ -24,13 +24,16 @@ def download_video(url, caption=False):
             print("no en captions")
 
 if __name__ == "__main__":
-    print(sys.argv)
-    type, url = sys.argv[1], sys.argv[2]
-    if type == "-p":
-        download_playlist(url)
-    elif type == "-v":
-        download_video(url)
-    elif type == "-vc":
-        download_video(url, True)
-
+    if len(sys.argv) == 1:
+        print("params: -v to download a video, -vc for video + captions, -p for a playlist. all params should be followed by url")
+    else:
+        type, url = sys.argv[1], sys.argv[2]
+        if type == "-p":
+            download_playlist(url)
+        elif type == "-v":
+            download_video(url)
+        elif type == "-vc":
+            download_video(url, True)
+        else:
+            raise "invalid type parameter"
 
